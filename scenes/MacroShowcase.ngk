@@ -1,0 +1,65 @@
+# =============================================
+# MacroShowcase.ngk - groups, macros and blocks
+# =============================================
+# [Macro] defines reusable blocks; `macro NAME` inlines one at parse
+# time. Macro bodies are simple - no loops, groups or nested macros.
+#
+# run{ }    fires a whole block on one key press.
+# loop(n,c){ } repeats a block, clearing after every c iterations.
+# group N{ }   tags what the body produces so `clear N` drops just it.
+
+[Options]
+# BackgroundColour = black
+
+[Preload]
+satyr-logo.png
+
+[Macro]
+Title{
+	text colour(ORANGE, "SatyrAV")
+	textCont " - macro and group showcase"
+}
+
+LogoPair{
+	show pos([30, 50], size([180, 180], satyr-logo.png))
+	show pos([70, 50], size([180, 180], satyr-logo.png))
+}
+
+[Commands]
+comment "--- macro: one reference, two cues ---"
+macro Title
+clear
+
+comment "--- run{}: one key press, everything at once ---"
+run{
+	text "Both of these appeared together"
+	show pos([50, 70], size([150, 150], satyr-logo.png))
+}
+clear
+
+comment "--- the same macro, reused ---"
+macro LogoPair
+clearImages
+
+comment "--- group: clear part of the screen by name ---"
+group Backdrop{
+	run{
+		show pos([50, 50], trans(70, size([400, 400], satyr-logo.png)))
+	}
+}
+text "This text is ungrouped."
+text "clearText drops the text but leaves the backdrop alone."
+clearText
+clear Backdrop
+
+comment "--- loop: repeat a block ---"
+loop(3, 1){
+	text "Loop iteration"
+	text "Cleared after every iteration"
+}
+text "Loop finished!"
+clearAll
+
+text "Edit these .ngk files, or add your own under scenes/."
+text "Remember to list any new scene in schema.toml."
+clear

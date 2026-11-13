@@ -1,0 +1,57 @@
+[Backstage]
+Enabled = true
+Url = 'https://backstage.texnik.dk/set-bck'
+
+[Display]
+CenterX = 960
+CenterY = 540
+Height = 1080
+Rotation = 0.0
+Width = 1920
+
+[Hotkeys]
+F1 = ''
+F10 = ''
+F11 = ''
+F12 = ''
+F2 = ''
+F3 = ''
+F4 = ''
+F5 = ''
+F6 = ''
+F7 = ''
+F8 = ''
+F9 = ''
+
+[Options]
+AudioFade = false
+BackgroundColour = 'black'
+Capitalize = false
+FixedTextCentre = true
+Font = ''
+FontBold = ''
+FontBoldItalic = ''
+FontItalic = ''
+FontSize = 60
+SubtitleColour = 'grey'
+SubtitleItalic = true
+SubtitlePosY = 90.0
+SubtitleTransparency = 0.0
+TextColour = 'white'
+TextOutline = 4
+
+[RevyData]
+Creator = 'Simon'
+Revy = 'MatRevy 2026'
+
+[Structure]
+akter = 3
+
+    [Structure.Akt1]
+    schema = [ 'TextShowcase', 'PictureShowcase', '01-01-Lav-Revy-Med-Os' ]
+
+    [Structure.Akt2]
+    schema = [ 'ParticleShowcase', 'MacroShowcase' ]
+
+    [Structure.Akt3]
+    schema = [ 'Empty', 'empty2' ]

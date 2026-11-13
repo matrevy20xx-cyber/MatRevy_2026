@@ -1,0 +1,50 @@
+# =============================================
+# ParticleShowcase.ngk - the particle layer
+# =============================================
+# particle(TYPE, [intensity,] image) turns an image into an emitter.
+# Intensity is 1-100 and defaults to 100.
+# Types: RAIN SNOW CONFETTI RISE SCATTER BROWNIAN OSCILLATION
+#        ORBIT NOISE LIFECURVE
+
+[Options]
+# BackgroundColour = black
+# Per-type tuning for this scene only. Project-wide defaults live in
+# schema.toml under [Particle.<TYPE>]; each field cascades on its own.
+SNOW.SPEED  = 0.8                  # Velocity multiplier
+SNOW.DENS   = 1.5                  # Spawn-rate multiplier
+SNOW.X.DIST = NORMAL(0.5, 0.15)    # Cluster spawns near the middle
+
+[Preload]
+satyr-logo.png
+
+[Commands]
+comment "--- Falling particles ---"
+text "SNOW, using this scene's tuning:"
+show particle(SNOW, 40, size([48, 48], satyr-logo.png))
+stopParticleCont                   #Stop spawning, let the live ones land
+clear
+show particle(RAIN, 60, size([32, 32], satyr-logo.png))
+clear
+
+comment "--- Bursts and rising ---"
+show particle(CONFETTI, 50, size([32, 32], satyr-logo.png))
+clear
+show particle(RISE, 40, size([40, 40], satyr-logo.png))
+clear
+
+comment "--- Motion models ---"
+show particle(ORBIT, 30, size([40, 40], satyr-logo.png))
+clear
+show particle(NOISE, 30, size([32, 32], satyr-logo.png))
+clear
+show particle(BROWNIAN, 30, bounce(true, size([40, 40], satyr-logo.png)))
+clear
+
+comment "--- Trails ---"
+show particle(ORBIT, 20, trail(16, size([40, 40], satyr-logo.png)))
+clear
+show particle(NOISE, 20, trailGlow(16, size([32, 32], satyr-logo.png)))
+clear
+
+text "Particles are dropped by clear, clearImages and clearAll."
+clear

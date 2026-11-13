@@ -1,0 +1,57 @@
+# =============================================
+# TextShowcase.ngk - the text layer
+# =============================================
+# Every non-comment line under [Commands] is one cue. Press ENTER to
+# fire the next one. Anything after a # is a comment and never runs.
+# Full command reference: docs/commands.md
+
+[Options]
+# BackgroundColour = blue  # Overrides the project BackgroundColour
+# TextColour = yellow      # Default text colour for this scene
+# FontSize = 30            # Overrides the project FontSize for this scene
+# Capitalize = true        # Uppercase every line of text
+
+# What the backstage screen shows for this scene, when the project's
+# schema.toml has a [Backstage] Url. Scenes without this block are left
+# off the backstage screen.
+# [Backstage]
+# Name         = Text showcase
+# ExpectedTime = 2m40s
+# Actors       = ["Actor 1", "Actor 2"]
+# Ninjas       = ["Ninja 1"]
+
+[Commands]
+comment "--- Plain text ---"
+text "Welcome to SatyrAV!"
+text "Each line here is one cue - press ENTER for the next."
+clear
+
+comment "--- Styling ---"
+textbf "This line is bold"
+textit "and this one is italic"
+clear
+text colour(RED, "Red") + " sitting next to " + colour(LIME, "green")
+text "Plain " + bold("BOLD") + " plus " + it("italic") + " on one line"
+clear
+
+comment "--- Revealing a line piece by piece ---"
+text "Loading"
+textCont " ."
+textCont " ."
+textCont " . done!"
+clear
+
+comment "--- Placement and translation ---"
+text pos([50, 25], "Positioned 50% across, 25% down")
+clear
+textD "Good evening!", "Godaften!"
+clear
+
+comment "--- Live countdown ---"
+text "The show starts in:"
+countdown(10, "en")
+clearCountdown
+clear
+
+text "That is the text layer. Next scene: pictures."
+clear

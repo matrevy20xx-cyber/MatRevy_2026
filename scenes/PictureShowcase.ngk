@@ -1,0 +1,50 @@
+# =============================================
+# PictureShowcase.ngk - the image layer
+# =============================================
+# Image paths resolve against the project root and then pictures/,
+# so `show satyr-logo.png` finds pictures/satyr-logo.png.
+# Supported: .png .jpg .bmp .webp .gif (animated GIFs cycle on their own).
+
+[Options]
+# BackgroundColour = black
+
+[Preload]
+satyr-logo.png
+
+[Commands]
+comment "--- A plain image ---"
+text "show puts a picture on the slave:"
+show satyr-logo.png
+clear
+
+comment "--- Size and position ---"
+show size([200, 200], satyr-logo.png)
+clear
+show pos([25, 50], size([200, 200], satyr-logo.png))
+show pos([75, 50], size([200, 200], satyr-logo.png))
+clear
+
+comment "--- Images stack until you clear them ---"
+show pos([30, 30], size([150, 150], satyr-logo.png))
+show pos([50, 50], size([150, 150], satyr-logo.png))
+show pos([70, 70], size([150, 150], satyr-logo.png))
+clearImages
+
+comment "--- Transparency and rotation ---"
+show trans(60, size([300, 300], satyr-logo.png))
+clear
+show rotate(30, size([250, 250], satyr-logo.png))
+clear
+show spin(90, size([250, 250], satyr-logo.png))
+clear
+
+comment "--- Movement ---"
+show move(W, [50, 50], 1200, size([200, 200], satyr-logo.png))
+clear
+show move([0, 100], [100, 0], 2000, size([150, 150], satyr-logo.png))
+clear
+
+comment "--- Random size, and one cue doing two things ---"
+show random(satyr-logo.png, [80, 80], [320, 320], true)
+clear & text "clear and text in a single cue, joined with &"
+clear

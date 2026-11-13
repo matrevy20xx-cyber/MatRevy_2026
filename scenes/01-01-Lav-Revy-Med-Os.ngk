@@ -1,0 +1,36 @@
+# =============================================
+# TextShowcase.ngk - the text layer
+# =============================================
+# Every non-comment line under [Commands] is one cue. Press ENTER to
+# fire the next one. Anything after a # is a comment and never runs.
+# Full command reference: docs/commands.md
+
+[Options]
+# BackgroundColour = blue  # Overrides the project BackgroundColour
+# TextColour = yellow      # Default text colour for this scene
+# FontSize = 30            # Overrides the project FontSize for this scene
+# Capitalize = true        # Uppercase every line of text
+
+# What the backstage screen shows for this scene, when the project's0
+# schema.toml has a [Backstage] Url. Scenes without this block are left
+# off the backstage screen.
+# [Backstage]
+# Name         = Text showcase
+# ExpectedTime = 2m40s
+# Actors       = ["Actor 1", "Actor 2"]
+# Ninjas       = ["Ninja 1"]
+
+[Commands]
+
+comment "--- Plain text ---"
+text "Er startet på mat"
+text "startet i nat"
+text "nyt liv på uni, uni"
+clear
+text "Ny mulighed"
+text "det bliver ved"
+text "alt hvad jeg ku bli, ku bli"
+clear
+text "Hvad hvis det ikke"
+text "hvad hvis det ik' er for mig?"
+clear
